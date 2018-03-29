@@ -22,9 +22,10 @@ fi
 
 # Force Locale
 
-export LC_ALL="en_US.UTF-8"
-echo "LC_ALL=en_US.UTF-8" >> /etc/default/locale
-locale-gen en_US.UTF-8
+echo "LC_CTYPE=zh_TW.UTF-8" >> /etc/default/locale
+echo "LC_MESSAGES=en_US.UTF-8" >> /etc/default/locale
+echo "LC_TIME=en_US.UTF-8" >> /etc/default/locale
+locale-gen zh_TW zh_TW.UTF-8 zh_CN.UTF-8 en_US.UTF-8
 
 # Add www user and group
 addgroup www
@@ -72,10 +73,10 @@ ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 # Install PHP Stuffs
 
 apt-get install -y --force-yes php7.1-cli php7.1 \
-php-pgsql php-sqlite3 php-gd php-apcu \
-php-curl php7.1-mcrypt \
-php-imap php-mysql php-memcached php7.1-readline php-xdebug \
-php7.1-mbstring php7.1-xml php7.1-zip php7.1-intl php7.1-bcmath php-soap
+php7.1-pgsql php7.1-sqlite3 php7.1-gd php7.1-apcu \
+php7.1-curl php7.1-mcrypt \
+php7.1-imap php7.1-mysql php7.1-memcached php7.1-readline php7.1-xdebug \
+php7.1-mbstring php7.1-xml php7.1-zip php7.1-intl php7.1-bcmath php7.1-soap
 
 # Install Composer
 
